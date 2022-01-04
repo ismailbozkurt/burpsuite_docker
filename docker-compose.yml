@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+    burp_pro:
+        container_name: burp_pro
+        build: burp/
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./_data/:/home/burp/
+        networks:
+            bozkurtrr:
+                ipv4_address: 172.22.0.2
+
+networks:
+    bozkurtrr:
+        ipam:
+            config:
+                - subnet: 172.22.0.0/24
